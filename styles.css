@@ -1,0 +1,432 @@
+/*
+ * Loadout Labs website: shared styles for every page.
+ *
+ * Layout concept: a load line. A rule runs under each page heading, as in
+ * the Loadline mark, where one bar rises past the line. Plain static pages,
+ * no build step, no tracking.
+ *
+ * Colours come from the coral brand palette (brand concept 2). It sets a
+ * few raw values (--p-*); everything else, including the inline logos,
+ * derives from them.
+ */
+
+/*
+ * Fonts are served from this site (assets/fonts, SIL Open Font License; see
+ * the OFL-*.txt files there), so no visitor request goes to a font service.
+ */
+@font-face { font-family: 'Sora'; font-style: normal; font-weight: 300; font-display: swap; src: url('assets/fonts/sora-latin-300-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Sora'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/sora-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Sora'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/sora-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Sora'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/sora-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/ibm-plex-sans-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Sans'; font-style: italic; font-weight: 400; font-display: swap; src: url('assets/fonts/ibm-plex-sans-latin-400-italic.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/ibm-plex-sans-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/ibm-plex-mono-latin-500-normal.woff2') format('woff2'); }
+
+/* Brand palette: coral (brand concept 2, chosen 2026-10-27). */
+:root {
+  --p-ink: #1e1e24;          /* text, the load line, the Labs squares */
+  --p-paper: #f7f7f9;
+  --p-labs: #ff6b4a;         /* Loadout Labs accent */
+  --p-primary: #2f5bea;      /* Loadline primary */
+  --p-primary-dark: #7fa0ff; /* Loadline primary on dark backgrounds */
+  --p-over: #ff6b4a;         /* the bar that rises past the load line */
+  --p-dark-bg: #1e1e24;
+  --p-dark-surface: #282830;
+  --p-dark-fg: #eeeef3;
+}
+
+:root {
+  /* Colour (light), from the palette */
+  --paper: var(--p-paper);
+  --surface: #ffffff;
+  --ink: var(--p-ink);
+  --ink-soft: color-mix(in srgb, var(--p-ink) 72%, var(--p-paper));
+  --rule: color-mix(in srgb, var(--p-ink) 15%, var(--p-paper));
+  --signal: var(--p-primary);   /* links, the load line, Loadline's colour */
+  --signal-soft: color-mix(in srgb, var(--p-primary) 12%, var(--p-paper));
+  --on-signal: #ffffff;
+  --labs: var(--p-labs);
+  --over: var(--p-over);
+  --mark-ink: var(--p-ink);     /* the dark parts of the logos */
+  /* Loadline's own status colours (semantic, not decoration) */
+  --good: #2b7a4b;
+  --warn: #a8661a;
+  --bad: #b2321f;
+  --muted-chip: color-mix(in srgb, var(--p-ink) 8%, var(--p-paper));
+
+  /* Type: Sora is the brand's wordmark face */
+  --font-display: "Sora", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-data: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* Scale */
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.1875rem;
+  --step-2: 1.5rem;
+  --step-3: 2rem;
+  --step-4: clamp(2.125rem, 1.4rem + 3.2vw, 3.5rem);
+  --measure: 65ch;
+  --page: 70rem;
+  --radius: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: var(--p-dark-bg);
+    --surface: var(--p-dark-surface);
+    --ink: var(--p-dark-fg);
+    --ink-soft: color-mix(in srgb, var(--p-dark-fg) 70%, var(--p-dark-bg));
+    --rule: color-mix(in srgb, var(--p-dark-fg) 16%, var(--p-dark-bg));
+    --signal: var(--p-primary-dark);
+    --signal-soft: color-mix(in srgb, var(--p-primary-dark) 16%, var(--p-dark-bg));
+    --on-signal: var(--p-dark-bg);
+    --mark-ink: #ffffff;
+    --good: #5fbf86;
+    --warn: #e0a35a;
+    --bad: #ef7a66;
+    --muted-chip: color-mix(in srgb, var(--p-dark-fg) 10%, var(--p-dark-bg));
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: var(--p-dark-bg);
+  --surface: var(--p-dark-surface);
+  --ink: var(--p-dark-fg);
+  --ink-soft: color-mix(in srgb, var(--p-dark-fg) 70%, var(--p-dark-bg));
+  --rule: color-mix(in srgb, var(--p-dark-fg) 16%, var(--p-dark-bg));
+  --signal: var(--p-primary-dark);
+  --signal-soft: color-mix(in srgb, var(--p-primary-dark) 16%, var(--p-dark-bg));
+  --on-signal: var(--p-dark-bg);
+  --mark-ink: #ffffff;
+  --good: #5fbf86;
+  --warn: #e0a35a;
+  --bad: #ef7a66;
+  --muted-chip: color-mix(in srgb, var(--p-dark-fg) 10%, var(--p-dark-bg));
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+
+/* Every band spans the full width; its inner wrapper keeps the side gutter. */
+.wrap {
+  max-width: var(--page);
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+a { color: var(--signal); text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 2px; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  text-wrap: balance;
+  margin: 0;
+}
+h1 { font-size: var(--step-4); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: var(--step-3); font-weight: 700; }
+h3 { font-size: var(--step-1); font-weight: 700; }
+p { margin: 0; max-width: var(--measure); }
+main a { overflow-wrap: anywhere; }
+
+.eyebrow {
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Draft band, removed before publishing. */
+.draft-band {
+  background: var(--signal-soft);
+  color: var(--ink);
+  font-size: var(--step--1);
+}
+.draft-band .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 6px;
+}
+
+/* Header */
+.site-header { border-bottom: 1px solid var(--rule); background: var(--paper); }
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-block: 14px;
+}
+/* Brand lockups: the logo mark (inline SVG, coloured by the palette) and the
+   Sora wordmark: "loadout" bold + "labs" light; "load" bold + "line" light
+   in the Loadline colour. */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.brand svg { width: 30px; height: 30px; flex: none; }
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.3125rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.wordmark b { font-weight: 700; }
+.wordmark .light { font-weight: 300; }
+.wordmark .line { color: var(--signal); }
+/* Trademark symbol after each wordmark: small, raised, never wrapped away. */
+.wordmark .tm { font-size: 0.38em; font-weight: 400; vertical-align: super; line-height: 0; margin-left: 0.08em; color: currentColor; }
+.brand.large { gap: 16px; }
+.brand.large svg { width: 64px; height: 64px; }
+.brand.large .wordmark { font-size: clamp(2.25rem, 1.6rem + 2.6vw, 3.25rem); }
+.brand.card svg { width: 44px; height: 44px; }
+.brand.card .wordmark { font-size: 1.75rem; }
+
+.site-nav { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 0.9375rem; }
+.site-nav a { color: var(--ink-soft); text-decoration: none; padding-block: 4px; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--signal); }
+
+/* Page heading with its waterline */
+.page-head .wrap { display: grid; gap: 14px; padding-block: 56px 28px; }
+.page-head .lede { font-size: var(--step-1); color: var(--ink-soft); }
+.waterline {
+  height: 0;
+  border-top: 2px solid var(--signal);
+  position: relative;
+  margin-top: 12px;
+}
+.waterline::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 0;
+  top: 6px;
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+main section .wrap { display: grid; gap: 20px; padding-block: 36px; }
+main section + section .wrap { border-top: 1px solid var(--rule); }
+
+/* Grids of equal items */
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 28px; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: 28px; }
+.grid-3 > *, .grid-2 > * { min-width: 0; display: grid; gap: 8px; align-content: start; }
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.button {
+  display: inline-block;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  background: var(--signal);
+  color: var(--on-signal);
+}
+.button.quiet { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+.button[aria-disabled="true"] { opacity: 0.75; cursor: default; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+ul.plain, ol.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; max-width: var(--measure); }
+
+.data { font-family: var(--font-data); font-size: 0.9em; }
+
+/* Status chips, in Loadline's own vocabulary */
+.chip {
+  display: inline-block;
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  padding: 3px 7px;
+  border-radius: 3px;
+  background: var(--muted-chip);
+  color: var(--ink);
+  white-space: nowrap;
+}
+.chip.good { color: var(--good); box-shadow: inset 0 0 0 1px var(--good); background: transparent; }
+.chip.warn { color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); background: transparent; }
+.chip.bad { color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); background: transparent; }
+
+/* Readiness chart: teams on one line of dates (example data). */
+.readiness { display: grid; gap: 10px; }
+.readiness-axis, .readiness-row {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 12px;
+  align-items: center;
+}
+.readiness-axis .ticks {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+}
+.readiness-row .team { font-weight: 600; font-size: 0.9375rem; }
+.track { position: relative; height: 26px; }
+.track .committed, .track .queued {
+  position: absolute;
+  top: 5px;
+  height: 16px;
+  border-radius: 3px;
+}
+.track .committed { left: 0; background: var(--ink); opacity: 0.85; }
+.track .queued {
+  background: repeating-linear-gradient(135deg, var(--signal) 0 4px, transparent 4px 8px);
+  box-shadow: inset 0 0 0 1px var(--signal);
+}
+.track .ready {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 2px solid var(--signal);
+}
+.readiness-row .note {
+  grid-column: 2;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+}
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: var(--step--1); color: var(--ink-soft); }
+.legend span::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 10px;
+  margin-right: 6px;
+  vertical-align: -1px;
+  border-radius: 2px;
+}
+.legend .l-committed::before { background: var(--ink); opacity: 0.85; }
+.legend .l-queued::before { background: repeating-linear-gradient(135deg, var(--signal) 0 3px, transparent 3px 6px); box-shadow: inset 0 0 0 1px var(--signal); }
+.legend .l-ready::before { width: 2px; background: var(--signal); }
+
+/* Screenshots of the app, each with a caption. */
+.shots { display: grid; gap: 40px; }
+.shot { margin: 0; display: grid; gap: 12px; min-width: 0; }
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: #ffffff; /* the screenshots are light-theme */
+}
+.shot-link { display: block; border-radius: var(--radius); }
+.shot-link { cursor: zoom-in; }
+
+/* Screenshot viewer (a <dialog>): the image as large as the screen allows. */
+.viewer {
+  width: min(96vw, 1840px);
+  max-width: none;
+  max-height: 96vh;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  overflow: auto;
+}
+.viewer::backdrop { background: rgba(10, 10, 14, 0.72); }
+.viewer-bar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--rule);
+}
+.viewer-caption { font-size: var(--step--1); color: var(--ink-soft); margin: 0; min-width: 0; }
+.viewer-close {
+  flex: none;
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+}
+.viewer img { display: block; width: 100%; height: auto; background: #ffffff; }
+.shot figcaption { color: var(--ink-soft); max-width: var(--measure); }
+.shot figcaption strong { color: var(--ink); }
+
+/* Tables */
+.table-scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.9375rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: var(--font-data); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* Steps in the setup guide are a real sequence. */
+ol.steps { list-style: none; counter-reset: step; margin: 0; padding: 0; display: grid; gap: 22px; max-width: var(--measure); }
+ol.steps > li { counter-increment: step; display: grid; grid-template-columns: 2.5rem 1fr; gap: 4px 12px; }
+ol.steps > li::before {
+  content: counter(step);
+  grid-row: span 2;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--step-2);
+  color: var(--signal);
+  line-height: 1;
+}
+ol.steps > li > * { grid-column: 2; min-width: 0; }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--rule); color: var(--ink-soft); font-size: var(--step--1); }
+.site-footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; padding-block: 24px 40px; }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.site-footer a { color: var(--ink-soft); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .track .committed, .track .queued { transition: width 0.4s ease; }
+}
+
+@media (max-width: 520px) {
+  .readiness-axis, .readiness-row { grid-template-columns: 4.5rem 1fr; gap: 8px; }
+  .page-head .wrap { padding-block: 36px 20px; }
+}

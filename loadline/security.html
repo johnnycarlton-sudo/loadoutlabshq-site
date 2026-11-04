@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Loadline Security</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Where Loadline keeps its data, what it stores, who can see what, and how it handles personal data.">
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" type="image/svg+xml" href="../assets/loadline-favicon.svg">
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Loadout Labs home"><svg viewBox="0 0 132 132" aria-hidden="true" focusable="false"><rect x="8" y="8" width="22" height="116" rx="4" style="fill:var(--labs)"/><rect x="8" y="102" width="116" height="22" rx="4" style="fill:var(--labs)"/><rect x="40" y="62" width="34" height="34" rx="4" style="fill:var(--mark-ink)"/><rect x="80" y="62" width="34" height="34" rx="4" style="fill:var(--mark-ink)"/><rect x="40" y="22" width="34" height="34" rx="4" style="fill:var(--mark-ink)"/><rect x="80" y="22" width="34" height="34" rx="4" style="fill:none;stroke:var(--mark-ink)" stroke-width="5" stroke-dasharray="7 6"/></svg><span class="wordmark"><b>loadout</b><span class="light">labs</span><sup class="tm">&trade;</sup></span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Loadline</a>
+      <a href="security.html" aria-current="page">Security</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Loadline</p>
+      <h1>Security and privacy</h1>
+      <p class="lede">Loadline runs entirely on Atlassian's cloud. Your plan never leaves Atlassian, and each person sees only what Jira already lets them see.</p>
+      <div class="waterline" data-label="Runs on Atlassian"></div>
+    </div>
+  </div>
+
+  <section aria-labelledby="where">
+    <div class="wrap">
+      <h2 id="where">Where your data lives</h2>
+      <div class="grid-3">
+        <div><h3>Atlassian-hosted</h3><p>Loadline is built on Atlassian Forge. Its data is in Atlassian-hosted storage, in a separate database for each Jira site, encrypted by the platform.</p></div>
+        <div><h3>No data leaves Atlassian</h3><p>Loadline calls no outside services and sends nothing to Loadout Labs. It qualifies for Atlassian's Runs on Atlassian programme.</p></div>
+        <div><h3>Data residency</h3><p>Loadline's data follows your site's data residency region, because it uses only Atlassian-hosted storage.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="access">
+    <div class="wrap">
+      <h2 id="access">Who sees what</h2>
+      <ul class="plain">
+        <li>Every request checks the person's own Jira permissions. People see only work in projects they can browse.</li>
+        <li>Settings are for Jira admins only, checked on every request.</li>
+        <li>The Rovo agent runs as the person asking and sees only what they can browse. By default it only reads and runs what-if scenarios.</li>
+        <li>Loadline never changes your Jira issues. Its permissions are read-only, apart from reporting stored accounts to Atlassian.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="personal">
+    <div class="wrap">
+      <h2 id="personal">Personal data</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Stored</th><th scope="col">Why</th></tr></thead>
+          <tbody>
+            <tr><td>Atlassian account IDs</td><td>Settings history (including approvers added or removed), decision approvers and who added them, and who recorded a decision or note</td></tr>
+            <tr><td>Names of shared specialists</td><td>Showing who is a bottleneck: from their Atlassian account, or typed in by a Jira admin for someone without one. Copied into daily plan snapshots (90 days) and into a decision's capacity snapshot</td></tr>
+            <tr><td>Decision titles, rationale and notes</td><td>The ranking decision log, as people write them</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>No email addresses, passwords or credentials are stored. Hours from Jira time tracking are kept only as totals for each epic, never who logged them. Every week Loadline reports its stored accounts to Atlassian, erases closed accounts and refreshes changed names. Plan snapshots are kept for 90 days. When Loadline is uninstalled, Atlassian deletes its data.</p>
+      <p>The full details are in the <a href="privacy.html">privacy policy</a> and the <a href="dpa.html">data processing addendum</a>.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="report">
+    <div class="wrap">
+      <h2 id="report">Report a security issue</h2>
+      <p>Email <a href="mailto:security@loadoutlabshq.com">security@loadoutlabshq.com</a>. Please include the steps to reproduce the issue, and don't share it publicly until we have fixed it.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Loadout Labs LLC</span>
+    <nav aria-label="Footer">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="dpa.html">DPA</a>
+      <a href="security.html">Security</a>
+      <a href="support.html">Support</a>
+      <a href="sla.html">Support SLA</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

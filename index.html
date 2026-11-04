@@ -2,79 +2,71 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Loadout Labs</title>
-<meta name="description" content="Loadout Labs builds software products. Our first, Loadline, is coming to the Atlassian Marketplace.">
-<!-- Placeholder page: keep it out of search results until the full site launches. -->
-<meta name="robots" content="noindex">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;700&family=IBM+Plex+Sans:wght@400&display=swap">
-<style>
-  /* Coral brand palette (brand concept 2, chosen 2026-10-27). */
-  :root {
-    --ink: #1e1e24;
-    --ink-soft: #55555e;
-    --paper: #f7f7f9;
-    --labs: #ff6b4a;
-    --primary: #2f5bea;
-    --mark-ink: #1e1e24;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --ink: #eeeef3;
-      --ink-soft: #b4b4bf;
-      --paper: #1e1e24;
-      --primary: #7fa0ff;
-      --mark-ink: #eeeef3;
-    }
-  }
-  * { box-sizing: border-box; }
-  html, body { height: 100%; margin: 0; }
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "IBM Plex Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    padding: 0 16px;
-  }
-  main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 36rem;
-    width: 100%;
-    margin: 0 auto;
-  }
-  .brand { display: flex; align-items: center; gap: 0.9rem; }
-  .brand svg { width: 4rem; height: 4rem; flex: none; }
-  .wordmark { font-family: "Sora", "Segoe UI", sans-serif; font-size: clamp(2rem, 1.4rem + 3vw, 3rem); letter-spacing: -0.02em; }
-  .wordmark b { font-weight: 700; }
-  .wordmark .light { font-weight: 300; }
-  .wordmark sup { font-size: 0.35em; font-weight: 400; margin-left: 0.1em; vertical-align: super; }
-  /* The load line under the heading, with the accent rising past it. */
-  .waterline { height: 4px; background: var(--ink); border-radius: 2px; margin: 1.75rem 0; position: relative; }
-  .waterline::after { content: ""; position: absolute; left: 0; bottom: 0; width: 3.5rem; height: 12px; background: var(--labs); border-radius: 2px; }
-  h1 { font-family: "Sora", "Segoe UI", sans-serif; font-weight: 700; font-size: 1.5rem; margin: 0 0 0.5rem; }
-  p { line-height: 1.6; margin: 0 0 0.75rem; color: var(--ink-soft); }
-  p strong { color: var(--ink); font-weight: 400; }
-  footer { max-width: 36rem; width: 100%; margin: 0 auto; padding: 1.5rem 0; font-size: 0.8125rem; color: var(--ink-soft); }
-</style>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Loadout Labs builds software products. Our first is Loadline, portfolio capacity and readiness for Jira.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="assets/labs-favicon.svg">
+
 </head>
 <body>
-<main>
-  <div class="brand" aria-label="Loadout Labs">
-    <!-- The Loadout Labs mark: an L holding a 2x2 load of squares, one still to come (dashed). -->
-    <svg viewBox="0 0 132 132" aria-hidden="true" focusable="false"><rect x="8" y="8" width="22" height="116" rx="4" fill="#ff6b4a"/><rect x="8" y="102" width="116" height="22" rx="4" fill="#ff6b4a"/><rect x="40" y="62" width="34" height="34" rx="4" style="fill:var(--mark-ink)"/><rect x="80" y="62" width="34" height="34" rx="4" style="fill:var(--mark-ink)"/><rect x="40" y="22" width="34" height="34" rx="4" style="fill:var(--mark-ink)"/><rect x="80" y="22" width="34" height="34" rx="4" style="fill:none;stroke:var(--mark-ink)" stroke-width="5" stroke-dasharray="7 6"/></svg>
-    <span class="wordmark"><b>loadout</b><span class="light">labs</span><sup>&trade;</sup></span>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Loadout Labs home"><svg viewBox="0 0 132 132" aria-hidden="true" focusable="false"><rect x="8" y="8" width="22" height="116" rx="4" style="fill:var(--labs)"/><rect x="8" y="102" width="116" height="22" rx="4" style="fill:var(--labs)"/><rect x="40" y="62" width="34" height="34" rx="4" style="fill:var(--mark-ink)"/><rect x="80" y="62" width="34" height="34" rx="4" style="fill:var(--mark-ink)"/><rect x="40" y="22" width="34" height="34" rx="4" style="fill:var(--mark-ink)"/><rect x="80" y="22" width="34" height="34" rx="4" style="fill:none;stroke:var(--mark-ink)" stroke-width="5" stroke-dasharray="7 6"/></svg><span class="wordmark"><b>loadout</b><span class="light">labs</span><sup class="tm">&trade;</sup></span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="loadline/index.html">Loadline</a>
+      <a href="loadline/security.html">Security</a>
+      <a href="loadline/support.html">Support</a>
+    </nav>
   </div>
-  <div class="waterline"></div>
-  <h1>Coming soon</h1>
-  <p>We build software products. <strong>Loadline</strong>, our first, is coming soon to the Atlassian Marketplace.</p>
+</header>
+
+<main>
+  <div class="page-head">
+    <div class="wrap">
+      <!-- Company wording is a placeholder until the Loadout Labs strategy is settled. -->
+      <h1>Loadout Labs</h1>
+      <p class="lede">We build software products. Loadline, our first, helps portfolio leads see what their teams can take on next.</p>
+      <div class="waterline"></div>
+    </div>
+  </div>
+
+  <section aria-labelledby="products">
+    <div class="wrap">
+      <h2 id="products">Products</h2>
+      <div class="grid-2">
+        <article class="panel">
+          <p class="eyebrow">For Jira Cloud</p>
+          <h3><span class="brand card"><svg viewBox="0 0 132 132" aria-hidden="true" focusable="false"><rect x="12" y="66" width="22" height="54" rx="4" style="fill:var(--signal)"/><rect x="42" y="48" width="22" height="72" rx="4" style="fill:var(--signal)"/><rect x="72" y="22" width="22" height="98" rx="4" style="fill:var(--signal)"/><rect x="72" y="22" width="22" height="20" rx="4" style="fill:var(--over)"/><rect x="102" y="58" width="22" height="62" rx="4" style="fill:var(--signal)"/><rect x="2" y="40" width="128" height="6" rx="3" style="fill:var(--mark-ink)"/></svg><span class="wordmark"><b>load</b><span class="light line">line</span><sup class="tm">&trade;</sup></span></span></h3>
+          <p>Portfolio capacity and readiness for Jira. See when each team can start new work, which projects to rank first, where shared specialists hold work up, and who frees up after a release.</p>
+          <div class="actions">
+            <a class="button" href="loadline/index.html">Meet Loadline</a>
+            <span class="chip">Coming to the Atlassian Marketplace</span>
+          </div>
+        </article>
+        <div>
+          <p class="eyebrow">More to come</p>
+          <p>Loadline is our first product, and more are on the way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
-<footer>&copy; 2026 Loadout Labs LLC</footer>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Loadout Labs LLC</span>
+    <nav aria-label="Footer">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="loadline/security.html">Security</a>
+      <a href="loadline/support.html">Support</a>
+    </nav>
+  </div>
+</footer>
+
 </body>
 </html>
