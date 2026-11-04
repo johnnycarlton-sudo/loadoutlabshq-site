@@ -639,3 +639,5 @@ main section + section.statement .wrap { border-top: 0; }
 }
 /* A wordmark inside an eyebrow keeps its own lettering. */
 .eyebrow .wordmark { text-transform: none; letter-spacing: -0.01em; }
+/* Captions run the full width of their screenshot (asked for 2026-11-04). */
+.shot figcaption { max-width: none; }
