@@ -430,3 +430,212 @@ ol.steps > li > * { grid-column: 2; min-width: 0; }
   .readiness-axis, .readiness-row { grid-template-columns: 4.5rem 1fr; gap: 8px; }
   .page-head .wrap { padding-block: 36px 20px; }
 }
+
+/* =====================================================================
+   Studio theme (chosen 2026-11-04): every page opens with a gradient band
+   (coral to blue, with a faint white grid); the site header floats over it
+   in white. Loadline pages (body.loadline) lean towards Loadline blue.
+   Reading pages keep a plain body below the band.
+   ===================================================================== */
+:root {
+  --grad-labs: linear-gradient(135deg, #ff6b4a 0%, #e8577f 38%, #2f5bea 100%);
+  --grad-loadline: linear-gradient(135deg, #ff6b4a 0%, #a24fbf 28%, #2f5bea 62%, #1f3fb8 100%);
+  --pill: 999px;
+}
+body { position: relative; }
+
+/* Header: floats over the band, everything in white. */
+.site-header {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 3;
+  background: transparent;
+  border-bottom: 0;
+  --labs: #ffffff;
+  --mark-ink: #ffffff;
+  color: #ffffff;
+}
+.site-header .brand { color: #ffffff; }
+.site-header .site-nav a { color: rgba(255, 255, 255, 0.86); }
+.site-header .site-nav a:hover,
+.site-header .site-nav a[aria-current="page"] { color: #ffffff; box-shadow: inset 0 -2px 0 #ffffff; }
+.site-header :focus-visible { outline-color: #ffffff; }
+
+/* The band. */
+.page-head {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: #ffffff;
+  background: var(--grad-labs);
+}
+body.loadline .page-head { background: var(--grad-loadline); }
+.page-head::before { /* the faint grid, fading out towards the edges */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 25%, transparent 72%);
+  mask-image: radial-gradient(ellipse at 50% 40%, #000 25%, transparent 72%);
+}
+.page-head::after { /* a soft glow in one corner */
+  content: "";
+  position: absolute;
+  z-index: -2;
+  width: 520px;
+  height: 520px;
+  top: -220px;
+  left: -140px;
+  border-radius: 50%;
+  background: #ffb199;
+  filter: blur(70px);
+  opacity: 0.45;
+  pointer-events: none;
+}
+.page-head .wrap {
+  position: relative;
+  padding-block: 132px 64px;
+  justify-items: center;
+  text-align: center;
+}
+.page-head h1 { color: #ffffff; }
+.page-head .lede { color: rgba(255, 255, 255, 0.92); margin-inline: auto; }
+.page-head .eyebrow { color: rgba(255, 255, 255, 0.86); }
+.page-head a { color: #ffffff; }
+.page-head .waterline { display: none; }
+.page-head .actions { justify-content: center; }
+.page-head .button { background: #ffffff; color: var(--p-ink); }
+.page-head .button.glass,
+.page-head .button[aria-disabled="true"] {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  opacity: 1;
+}
+.page-head :focus-visible { outline-color: #ffffff; }
+
+/* Bigger band for the home and product pages; room for the floating screenshot. */
+.page-head.hero .wrap { padding-block: 150px 150px; gap: 18px; }
+.page-head.hero h1 { font-size: clamp(2.6rem, 1.4rem + 6vw, 5.2rem); letter-spacing: -0.035em; }
+.page-head.hero h1 .light { font-weight: 300; }
+.page-head.hero .lede { font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); max-width: 36rem; }
+
+/* Frosted badge that holds a logo mark in a band. */
+.badge {
+  width: 104px;
+  height: 104px;
+  border-radius: 28px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+}
+.badge svg { width: 64px; height: 64px; }
+
+/* All buttons are pills. */
+.button { border-radius: var(--pill); padding: 12px 22px; }
+
+/* A screenshot in a browser-style frame. `.float` pulls it up over the band. */
+.frame {
+  display: block;
+  background: #ffffff;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(30, 30, 36, 0.16);
+}
+.frame::before {
+  content: "";
+  display: block;
+  height: 32px;
+  border-bottom: 1px solid #ececf1;
+  background:
+    radial-gradient(circle at 18px 16px, #dcdce3 5px, transparent 6px),
+    radial-gradient(circle at 36px 16px, #dcdce3 5px, transparent 6px),
+    radial-gradient(circle at 54px 16px, #dcdce3 5px, transparent 6px),
+    #f7f7f9;
+}
+.frame img { display: block; width: 100%; height: auto; border: 0; border-radius: 0; }
+.float { position: relative; z-index: 2; margin-top: -96px; }
+.float .frame { box-shadow: 0 40px 90px rgba(30, 30, 36, 0.24); }
+.shot .frame { border-radius: 14px; }
+
+/* A large, quiet statement line; the emphasis is in coral. */
+.statement .wrap { padding-block: 88px 24px; justify-items: center; text-align: center; }
+main section + section.statement .wrap { border-top: 0; }
+.statement p {
+  max-width: 46rem;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.4rem, 1rem + 1.8vw, 2.2rem);
+  line-height: 1.3;
+}
+.statement b { font-weight: 600; color: var(--labs-strong, #e2532f); }
+
+/* Centred section heading with a small coloured label above it. */
+.section-head { display: grid; gap: 8px; justify-items: center; text-align: center; }
+.section-head p { margin-inline: auto; color: var(--ink-soft); }
+.label {
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+/* Numbered feature cards. */
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 20px; }
+.feature { border-radius: 16px; padding: 28px; background: var(--muted-chip); display: grid; gap: 8px; align-content: start; }
+.feature .n {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(135deg, #ff6b4a, #2f5bea);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.feature p { color: var(--ink-soft); }
+
+/* Trust pills. */
+.trust { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.trust span { padding: 8px 14px; border-radius: var(--pill); border: 1px solid var(--rule); font-size: 0.9rem; color: var(--ink-soft); }
+
+/* Footer: dark, with a thin coral-to-blue line along the top. */
+.site-footer {
+  background: #16161b;
+  color: #b4b4c0;
+  border-top: 0;
+  position: relative;
+  margin-top: 56px;
+}
+.site-footer::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--grad-labs); }
+.site-footer a { color: #d6d6de; }
+.site-footer .wrap { padding-block: 32px 44px; }
+
+/* Dark mode: the bands stay as they are; frames sit on the dark surface. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .frame { border-color: rgba(255, 255, 255, 0.12); }
+  :root:not([data-theme="light"]) .statement b { color: #ff8a6f; }
+  :root:not([data-theme="light"]) .site-footer { background: #111115; }
+}
+:root[data-theme="dark"] .frame { border-color: rgba(255, 255, 255, 0.12); }
+:root[data-theme="dark"] .statement b { color: #ff8a6f; }
+
+@media (max-width: 640px) {
+  .page-head .wrap { padding-block: 112px 48px; }
+  .page-head.hero .wrap { padding-block: 120px 112px; }
+  .float { margin-top: -72px; }
+  .site-header .site-nav { gap: 4px 14px; }
+}
+/* A wordmark inside an eyebrow keeps its own lettering. */
+.eyebrow .wordmark { text-transform: none; letter-spacing: -0.01em; }

@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="../assets/loadline-favicon.svg">
 
 </head>
-<body>
+<body class="loadline">
 
 <header class="site-header">
   <div class="wrap">
@@ -24,110 +24,67 @@
 </header>
 
 <main>
-  <div class="page-head">
+  <div class="page-head hero">
     <div class="wrap">
-      <p class="brand large" role="img" aria-label="Loadline"><svg viewBox="0 0 132 132" aria-hidden="true" focusable="false"><rect x="12" y="66" width="22" height="54" rx="4" style="fill:var(--signal)"/><rect x="42" y="48" width="22" height="72" rx="4" style="fill:var(--signal)"/><rect x="72" y="22" width="22" height="98" rx="4" style="fill:var(--signal)"/><rect x="72" y="22" width="22" height="20" rx="4" style="fill:var(--over)"/><rect x="102" y="58" width="22" height="62" rx="4" style="fill:var(--signal)"/><rect x="2" y="40" width="128" height="6" rx="3" style="fill:var(--mark-ink)"/></svg><span class="wordmark"><b>load</b><span class="light line">line</span><sup class="tm">&trade;</sup></span></p>
-      <p class="eyebrow">For Jira Cloud</p>
+      <!-- The Loadline mark on a frosted badge: white bars, the coral bar over the ink load line. -->
+      <div class="badge" aria-hidden="true"><svg viewBox="0 0 132 132" focusable="false"><rect x="12" y="66" width="22" height="54" rx="4" fill="#ffffff"/><rect x="42" y="48" width="22" height="72" rx="4" fill="#ffffff"/><rect x="72" y="22" width="22" height="98" rx="4" fill="#ffffff"/><rect x="72" y="22" width="22" height="20" rx="4" fill="#ff6b4a"/><rect x="102" y="58" width="22" height="62" rx="4" fill="#ffffff"/><rect x="2" y="40" width="128" height="6" rx="3" fill="#1e1e24"/></svg></div>
+      <p class="eyebrow"><span class="wordmark" style="font-size:1rem"><b>load</b><span class="light">line</span><sup class="tm">&trade;</sup></span> &middot; for Jira Cloud</p>
       <h1>When can each team start new work?</h1>
       <p class="lede">Loadline answers from the epics, dates and teams already in Jira. Every date comes with its confidence and the issue that decides it.</p>
       <div class="actions">
+        <a class="button" href="#screens">See it in Jira</a>
         <span class="button" aria-disabled="true">Coming to the Atlassian Marketplace</span>
       </div>
     </div>
   </div>
 
-  <section aria-labelledby="example">
+  <div class="wrap float">
+    <a class="frame shot-link" href="../assets/screens/portfolio.png" aria-label="Open the full-size screenshot"><img src="../assets/screens/portfolio.png" width="1840" height="900"
+      alt="Loadline portfolio page: summary tiles and projects ranked by priority score, with status, expected finish, confidence, teams and what to watch out for."></a>
+  </div>
+
+  <section class="statement" aria-label="Why Loadline">
     <div class="wrap">
-      <div>
-        <p class="eyebrow">Example portfolio, as of 1 Nov 2026</p>
-        <h2 id="example">Every team on one line of dates</h2>
-      </div>
-      <div class="panel readiness" role="img" aria-label="Example: Web is ready for new work on 20 Nov 2026, Mobile on 12 Jan 2027, Payments on 3 Mar 2027.">
-        <div class="readiness-axis">
-          <span></span>
-          <div class="ticks"><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span></div>
-        </div>
-
-        <div class="readiness-row">
-          <span class="team">Web</span>
-          <div class="track">
-            <span class="committed" style="width: 10.5%"></span>
-            <span class="queued" style="left: 10.5%; width: 32.5%"></span>
-            <span class="ready" style="left: 10.5%"></span>
-          </div>
-          <div class="note"><span>Ready <span class="data">20 Nov 2026</span></span><span class="chip good">Green</span><span class="chip">High confidence</span></div>
-        </div>
-
-        <div class="readiness-row">
-          <span class="team">Mobile</span>
-          <div class="track">
-            <span class="committed" style="width: 39.8%"></span>
-            <span class="queued" style="left: 39.8%; width: 46.9%"></span>
-            <span class="ready" style="left: 39.8%"></span>
-          </div>
-          <div class="note"><span>Ready <span class="data">12 Jan 2027</span>, based on <span class="data">LLT-6</span></span><span class="chip warn">Amber</span><span class="chip">Medium confidence</span><span>Waiting on Sam (SA)</span></div>
-        </div>
-
-        <div class="readiness-row">
-          <span class="team">Payments</span>
-          <div class="track">
-            <span class="committed" style="width: 67.4%"></span>
-            <span class="ready" style="left: 67.4%"></span>
-          </div>
-          <div class="note"><span>Ready <span class="data">3 Mar 2027</span></span><span class="chip good">Green</span><span class="chip">High confidence</span></div>
-        </div>
-
-        <div class="legend">
-          <span class="l-committed">Committed work, from Jira dates</span>
-          <span class="l-queued">Queued work, estimated in rank order</span>
-          <span class="l-ready">Ready for new work</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section aria-labelledby="screens">
-    <div class="wrap">
-      <div>
-        <p class="eyebrow">Example data from a test site</p>
-        <h2 id="screens">See it in Jira</h2>
-      </div>
-      <div class="shots">
-        <figure class="shot">
-          <a class="shot-link" href="../assets/screens/team-view.png" aria-label="Open the full-size screenshot"><img src="../assets/screens/team-view.png" width="1840" height="900" loading="lazy"
-            alt="Loadline team view for Mobile: ready for new work on 12 January 2027, with its next free time, the specialists it relies on and a chart of free days by month."></a>
-          <figcaption><strong>Team view.</strong> Mobile is ready for new work on 12 Jan 2027. Loadline shows why its next free time ends, the shared specialists the team relies on, and its free days month by month.</figcaption>
-        </figure>
-        <figure class="shot">
-          <a class="shot-link" href="../assets/screens/project-view.png" aria-label="Open the full-size screenshot"><img src="../assets/screens/project-view.png" width="1840" height="900" loading="lazy"
-            alt="Loadline project view for Checkout 2.0: each epic with its team, dates, confidence, status and the evidence behind the status."></a>
-          <figcaption><strong>Project view.</strong> Every epic in Checkout 2.0 with its dates, confidence and status, and the evidence for each rating, such as time used against work done, or a missing end date.</figcaption>
-        </figure>
-        <figure class="shot">
-          <a class="shot-link" href="../assets/screens/portfolio.png" aria-label="Open the full-size screenshot"><img src="../assets/screens/portfolio.png" width="1840" height="900" loading="lazy"
-            alt="Loadline portfolio page: summary tiles and projects ranked by priority score, with status, expected finish, confidence, teams and what to watch out for."></a>
-          <figcaption><strong>Portfolio.</strong> Projects ranked by priority score, with their status, expected finish, confidence and teams, and a note on anything to watch out for.</figcaption>
-        </figure>
-      </div>
+      <p>A team's start date is only useful if you can <b>see why</b>. Loadline shows the epic, the dates and the confidence behind every one.</p>
     </div>
   </section>
 
   <section aria-labelledby="highlights">
     <div class="wrap">
-      <h2 id="highlights">What you get</h2>
-      <div class="grid-3">
-        <div>
-          <h3>Start dates you can defend</h3>
-          <p>Loadline works out when each team finishes its committed work, allowing for unplanned work, and dates what comes next in rank order. Each date shows how sure it is and why.</p>
-        </div>
-        <div>
-          <h3>Status with evidence</h3>
-          <p>Red, amber and green come with the dates and epics behind them, including the work that blocks an epic. Progress counts the way your teams work: stories with credit for sub-tasks done, story points or hours. Work Loadline can't judge is marked <em>Not assessed</em>, never quietly green.</p>
-        </div>
-        <div>
-          <h3>Rank, then record why</h3>
-          <p>Projects are ranked by an adjustable priority score. The ranking decision log keeps each decision, its rationale and a snapshot of capacity, with named approvers.</p>
-        </div>
+      <div class="section-head">
+        <p class="label">What you get</p>
+        <h2 id="highlights">Three answers, each with its evidence</h2>
+      </div>
+      <div class="features">
+        <div class="feature"><span class="n">01</span><h3>Start dates you can defend</h3><p>Loadline works out when each team finishes its committed work, allowing for unplanned work, and dates what comes next in rank order. Each date shows how sure it is and why.</p></div>
+        <div class="feature"><span class="n">02</span><h3>Status with evidence</h3><p>Red, amber and green come with the dates and epics behind them, including the work that blocks an epic. Progress counts the way your teams work: stories with credit for sub-tasks done, story points or hours. Work Loadline can't judge is marked <em>Not assessed</em>, never quietly green.</p></div>
+        <div class="feature"><span class="n">03</span><h3>Rank, then record why</h3><p>Projects are ranked by an adjustable priority score. The ranking decision log keeps each decision, its rationale and a snapshot of capacity, with named approvers.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="screens" id="screens">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Example data from a test site</p>
+        <h2>See it in Jira</h2>
+      </div>
+      <div class="shots">
+        <figure class="shot">
+          <a class="frame shot-link" href="../assets/screens/team-timeline.png" aria-label="Open the full-size screenshot"><img src="../assets/screens/team-timeline.png" width="1840" height="900" loading="lazy"
+            alt="Loadline team timeline: one bar per team in days from today, committed work then queued work, with a table of each team's ready date, the epic that decides it, its next free time, confidence and status."></a>
+          <figcaption><strong>Team timeline.</strong> Every team on one line of dates: committed work from Jira dates, then queued work estimated in rank order. Below it, each team's ready date, how many days away it is, and the epic that decides it.</figcaption>
+        </figure>
+        <figure class="shot">
+          <a class="frame shot-link" href="../assets/screens/team-view.png" aria-label="Open the full-size screenshot"><img src="../assets/screens/team-view.png" width="1840" height="900" loading="lazy"
+            alt="Loadline team view for Platform: ready for new work on 22 April 2027, nothing queued, its next free time and why it ends, the specialists it relies on and a chart of free days by month."></a>
+          <figcaption><strong>Team view.</strong> Platform is ready for new work on 22 Apr 2027. Loadline shows its next free time and the epic that ends it, how long queued work would keep it busy, the shared specialists it relies on, and its free days month by month.</figcaption>
+        </figure>
+        <figure class="shot">
+          <a class="frame shot-link" href="../assets/screens/project-view.png" aria-label="Open the full-size screenshot"><img src="../assets/screens/project-view.png" width="1840" height="900" loading="lazy"
+            alt="Loadline project view for Checkout 2.0: each epic with its team, dates, confidence, status and the evidence behind the status."></a>
+          <figcaption><strong>Project view.</strong> Every epic in Checkout 2.0 with its dates, confidence and status, and the evidence for each rating: progress against time used, counting sub-tasks done, an epic that can't finish because its blocker ends too late, or a missing end date.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -155,13 +112,13 @@
 
   <section aria-labelledby="trust">
     <div class="wrap">
-      <h2 id="trust">Built to be trusted with your plan</h2>
-      <div class="grid-3">
-        <div><h3>Runs on Atlassian</h3><p>Loadline runs on Atlassian Forge and keeps its data in Atlassian-hosted storage. No data leaves Atlassian.</p></div>
-        <div><h3>Read-only towards Jira</h3><p>Loadline reads your work and never changes your issues. What-if scenarios are never saved.</p></div>
-        <div><h3>Permission-aware</h3><p>People see only work in Jira projects they can browse, on every page and in Rovo.</p></div>
+      <div class="section-head"><p class="label">Security</p><h2 id="trust">Built to be trusted with your plan</h2></div>
+      <div class="features">
+        <div class="feature"><h3>Runs on Atlassian</h3><p>Loadline runs on Atlassian Forge and keeps its data in Atlassian-hosted storage. No data leaves Atlassian.</p></div>
+        <div class="feature"><h3>Read-only towards Jira</h3><p>Loadline reads your work and never changes your issues. What-if scenarios are never saved.</p></div>
+        <div class="feature"><h3>Permission-aware</h3><p>People see only work in Jira projects they can browse, on every page and in Rovo.</p></div>
       </div>
-      <p><a href="security.html">Read about security and privacy</a></p>
+      <div class="actions" style="justify-content:center"><a class="button" href="security.html">Security and privacy</a></div>
     </div>
   </section>
 
@@ -214,7 +171,8 @@
     link.addEventListener('click', function (event) {
       event.preventDefault();
       var shot = link.querySelector('img');
-      var text = link.closest('figure').querySelector('figcaption');
+      var figure = link.closest('figure'); // the hero screenshot has no caption
+      var text = figure ? figure.querySelector('figcaption') : null;
       image.src = link.getAttribute('href');
       image.alt = shot ? shot.alt : '';
       caption.textContent = text ? text.textContent : '';

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Loadout Labs</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Loadout Labs builds software products. Our first is Loadline, portfolio capacity and readiness for Jira.">
+<meta name="description" content="Loadout Labs builds focused software that shows teams what they can really take on. Our first product is Loadline, portfolio capacity and readiness for Jira.">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/svg+xml" href="assets/labs-favicon.svg">
 
@@ -24,36 +24,46 @@
 </header>
 
 <main>
-  <div class="page-head">
+  <div class="page-head hero">
     <div class="wrap">
-      <!-- Company wording is a placeholder until the Loadout Labs strategy is settled. -->
-      <h1>Loadout Labs</h1>
-      <p class="lede">We build software products. Loadline, our first, helps portfolio leads see what their teams can take on next.</p>
-      <div class="waterline"></div>
+      <!-- The Labs mark on a frosted badge. -->
+      <div class="badge" aria-hidden="true"><svg viewBox="0 0 132 132" focusable="false"><rect x="8" y="8" width="22" height="116" rx="4" fill="#ffffff"/><rect x="8" y="102" width="116" height="22" rx="4" fill="#ffffff"/><rect x="40" y="62" width="34" height="34" rx="4" fill="#1e1e24"/><rect x="80" y="62" width="34" height="34" rx="4" fill="#1e1e24"/><rect x="40" y="22" width="34" height="34" rx="4" fill="#1e1e24"/><rect x="80" y="22" width="34" height="34" rx="4" fill="none" stroke="#1e1e24" stroke-width="5" stroke-dasharray="7 6"/></svg></div>
+      <h1><b>loadout</b> <span class="light">labs</span><sup class="tm" style="font-size:.3em">&trade;</sup></h1>
+      <p class="lede">Focused software that shows teams what they can really take on, and why.</p>
+      <div class="actions">
+        <a class="button" href="loadline/index.html">Meet Loadline</a>
+        <a class="button glass" href="loadline/support.html">Get support</a>
+      </div>
     </div>
   </div>
 
-  <section aria-labelledby="products">
+  <div class="wrap float">
+    <a class="frame" href="loadline/index.html" aria-label="Meet Loadline"><img src="assets/screens/portfolio.png" width="1840" height="900"
+      alt="Loadline portfolio page in Jira: projects ranked by priority score, with status, expected finish, confidence, teams and what to watch out for."></a>
+  </div>
+
+  <section class="statement" aria-label="What we believe">
     <div class="wrap">
-      <h2 id="products">Products</h2>
-      <div class="grid-2">
-        <article class="panel">
-          <p class="eyebrow">For Jira Cloud</p>
-          <h3><span class="brand card"><svg viewBox="0 0 132 132" aria-hidden="true" focusable="false"><rect x="12" y="66" width="22" height="54" rx="4" style="fill:var(--signal)"/><rect x="42" y="48" width="22" height="72" rx="4" style="fill:var(--signal)"/><rect x="72" y="22" width="22" height="98" rx="4" style="fill:var(--signal)"/><rect x="72" y="22" width="22" height="20" rx="4" style="fill:var(--over)"/><rect x="102" y="58" width="22" height="62" rx="4" style="fill:var(--signal)"/><rect x="2" y="40" width="128" height="6" rx="3" style="fill:var(--mark-ink)"/></svg><span class="wordmark"><b>load</b><span class="light line">line</span><sup class="tm">&trade;</sup></span></span></h3>
-          <p>Portfolio capacity and readiness for Jira. See when each team can start new work, which projects to rank first, where shared specialists hold work up, and who frees up after a release.</p>
-          <div class="actions">
-            <a class="button" href="loadline/index.html">Meet Loadline</a>
-            <span class="chip">Coming to the Atlassian Marketplace</span>
-          </div>
-        </article>
-        <div>
-          <p class="eyebrow">More to come</p>
-          <p>Loadline is our first product, and more are on the way.</p>
-        </div>
-      </div>
+      <p>Planning goes wrong when work quietly rises <b>above the line</b>. We build tools that show it early, and show why.</p>
     </div>
   </section>
 
+  <section aria-labelledby="loadline">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Loadline &middot; our first product &middot; for Jira Cloud</p>
+        <h2 id="loadline">Portfolio capacity you can defend</h2>
+        <p>From the epics, dates and teams already in Jira.</p>
+      </div>
+      <div class="features">
+        <div class="feature"><span class="n">01</span><h3>Start dates with evidence</h3><p>When each team can start new work, how sure that date is, and the epic that decides it.</p></div>
+        <div class="feature"><span class="n">02</span><h3>Status, not opinion</h3><p>Red, amber and green ratings with the dates and epics behind them.</p></div>
+        <div class="feature"><span class="n">03</span><h3>Rank, then record why</h3><p>An adjustable priority score, load relief after each release, and a ranking decision log.</p></div>
+      </div>
+      <div class="trust"><span>Read-only in Jira</span><span>Runs on Atlassian Forge</span><span>No outside servers</span></div>
+      <div class="actions" style="justify-content:center"><a class="button" href="loadline/index.html">Explore Loadline</a><span class="chip">Coming to the Atlassian Marketplace</span></div>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
