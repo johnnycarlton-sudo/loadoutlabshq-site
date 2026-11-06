@@ -1,0 +1,165 @@
+/*
+ * Frosted glass theme for the Loadout Labs website (2026-11-05).
+ * It loads after styles.css and only layers the glass look on top, so
+ * removing the <link> to this file restores the previous look.
+ *
+ * Glass needs something behind it to show through, so the page gets a few
+ * soft colour fields fixed behind the content (coral, blue, a little
+ * violet). Cards, pills, tables and the screenshot frames become frosted
+ * panels: translucent fill, background blur, a bright top edge and a soft
+ * shadow. The logos in the header and the hero badge are the glass marks
+ * (defined once per page in a hidden <svg> at the top of <body>).
+ */
+
+:root {
+  --glass-fill: rgba(255, 255, 255, 0.58);
+  --glass-edge: rgba(255, 255, 255, 0.85);
+  --glass-line: rgba(30, 30, 36, 0.08);
+  --glass-shadow: 0 14px 40px rgba(30, 30, 36, 0.09);
+  --glass-blur: blur(18px) saturate(150%);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --glass-fill: rgba(255, 255, 255, 0.06);
+    --glass-edge: rgba(255, 255, 255, 0.16);
+    --glass-line: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  }
+}
+:root[data-theme="dark"] {
+  --glass-fill: rgba(255, 255, 255, 0.06);
+  --glass-edge: rgba(255, 255, 255, 0.16);
+  --glass-line: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* Soft colour fields behind everything, for the glass to pick up. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(42rem 30rem at 8% 35%, rgba(255, 107, 74, 0.13), transparent 62%),
+    radial-gradient(44rem 32rem at 94% 55%, rgba(47, 91, 234, 0.14), transparent 62%),
+    radial-gradient(34rem 26rem at 50% 105%, rgba(162, 79, 191, 0.1), transparent 62%);
+}
+body.loadline::before {
+  background:
+    radial-gradient(42rem 30rem at 8% 35%, rgba(255, 107, 74, 0.1), transparent 62%),
+    radial-gradient(48rem 34rem at 92% 50%, rgba(47, 91, 234, 0.18), transparent 62%),
+    radial-gradient(34rem 26rem at 40% 105%, rgba(31, 63, 184, 0.1), transparent 62%);
+}
+
+/* A frosted glass panel, used for every card-like surface. */
+.feature,
+.panel,
+.trust span,
+.table-scroll,
+.section-head + .features .feature {
+  background: var(--glass-fill);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-edge);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-edge);
+}
+.feature { border-radius: 20px; }
+.table-scroll { border-radius: 16px; padding: 6px 8px; }
+.trust span { color: var(--ink); }
+
+/* The header becomes a thin frosted strip floating over the band. */
+.site-header {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+.site-header .brand svg { width: 34px; height: 34px; }
+
+/* The hero badge: thicker glass, so the glass mark inside reads. */
+.badge {
+  width: 124px;
+  height: 124px;
+  border-radius: 34px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.07));
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+.badge svg { width: 84px; height: 84px; }
+
+/* Buttons in the band: a bright pill and a glass pill. */
+.page-head .button { box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16), inset 0 1px 0 #ffffff; }
+.page-head .button.glass,
+.page-head .button[aria-disabled="true"] {
+  background: rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Screenshot frames: a frosted title bar and a glass edge. */
+.frame {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 34px 80px rgba(30, 30, 36, 0.2), 0 0 0 6px rgba(255, 255, 255, 0.28);
+}
+.frame::before {
+  background:
+    radial-gradient(circle at 18px 16px, #ff8a6f 5px, transparent 6px),
+    radial-gradient(circle at 36px 16px, #c9c9d4 5px, transparent 6px),
+    radial-gradient(circle at 54px 16px, #c9c9d4 5px, transparent 6px),
+    linear-gradient(#fbfbfd, #f0f0f4);
+}
+
+/* Footer: dark glass with the gradient edge kept. */
+.site-footer {
+  background: rgba(18, 18, 22, 0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* =====================================================================
+   Hero background: the "architectural" theme (chosen 2026-11-05), on
+   every page through body.hero-shapes.
+   ===================================================================== */
+
+/* Dark, with the Labs mark enlarged into faint glass
+   shapes behind the headline. */
+body.hero-shapes .page-head { background: radial-gradient(circle at 30% 20%, #26262f, #0f0f13 70%); }
+body.hero-shapes .page-head::after { background: #ff6b4a; opacity: 0.22; filter: blur(110px); }
+body.hero-shapes .page-head::before { -webkit-mask-image: none; mask-image: none; background-image: none; }
+.hero-art {
+  position: absolute;
+  z-index: -1;
+  top: 8%;
+  left: 63%;
+  width: min(44vw, 620px);
+  aspect-ratio: 1;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(2px);
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.35));
+  opacity: 0.75;
+  transform: rotate(-6deg);
+}
+.hero-art svg { width: 100%; height: 100%; display: block; }
+body.hero-shapes .badge {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Loadline pages: the same dark band, glowing Loadline blue. */
+body.loadline.hero-shapes .page-head { background: radial-gradient(circle at 30% 20%, #1f2440, #0d0f18 70%); }
+body.loadline.hero-shapes .page-head::after { background: #2f5bea; opacity: 0.35; }
+/* Level, never tilted: Loadline's load line is horizontal by definition. */
+body.loadline.hero-shapes .hero-art { top: 16%; left: 68%; width: min(36vw, 520px); transform: none; opacity: 0.6; }
+
+/* Browsers without background blur get near-solid panels instead of
+   see-through ones, so text on them stays easy to read. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root { --glass-fill: rgba(255, 255, 255, 0.94); }
+  :root[data-theme="dark"] { --glass-fill: rgba(40, 40, 48, 0.94); }
+  .site-header { background: rgba(20, 20, 26, 0.9); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --glass-fill: rgba(40, 40, 48, 0.94); }
+  }
+}
