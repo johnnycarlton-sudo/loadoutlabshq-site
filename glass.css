@@ -118,6 +118,19 @@ body.loadline::before {
   backdrop-filter: blur(12px);
 }
 
+/* Reading column: plain text sections (support, SLA, legal and similar)
+   sit in a centred column at the comfortable reading width, instead of
+   hugging the left edge of a wide page. Text stays left-aligned inside
+   the column. Card grids, screenshots and centred section headings keep
+   their own layout. */
+main section:not(.statement) .wrap > :is(h2, h3, p, ul, ol, .table-scroll) {
+  width: 100%;
+  /* 39rem = the 65-character reading width of body text. A fixed unit, so
+     larger headings line up with the paragraphs (ch scales with font size). */
+  max-width: 39rem;
+  margin-inline: auto;
+}
+
 /* =====================================================================
    Hero background: the "architectural" theme (chosen 2026-11-05), on
    every page through body.hero-shapes.
