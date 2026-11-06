@@ -5,10 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Loadout Labs</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Loadout Labs builds focused software that turns hard decisions into real results. Our first product is Loadline, portfolio capacity and readiness for Jira.">
+<meta name="description" content="Loadout Labs builds focused software that turns hard decisions into real results. Our first product, Loadline, is coming soon to the Atlassian Marketplace.">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="glass.css">
 <link rel="icon" type="image/svg+xml" href="assets/labs-favicon.svg">
+<!-- Coming-soon page only: the single centred glass card under the band. -->
+<style>
+  .coming { max-width: 39rem; margin: 0 auto; text-align: center; justify-items: center; padding: 36px 32px; }
+  .coming h2 { margin: 0; }
+  .coming .actions { justify-content: center; }
+  /* Loadline's glass mark sits on a small dark glass tile, so it reads in light and dark mode. */
+  .coming-mark { width: 76px; height: 76px; border-radius: 22px; display: grid; place-items: center; margin: 0 auto 6px;
+    background: radial-gradient(circle at 30% 20%, #1f2440, #0d0f18 75%); box-shadow: 0 14px 30px rgba(13, 15, 24, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25); }
+  .coming-mark svg { width: 52px; height: 52px; }
+</style>
 
 </head>
 <body class="hero-shapes">
@@ -42,7 +52,6 @@
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="Loadout Labs home"><svg viewBox="0 0 132 132" aria-hidden="true" focusable="false"><use href="#labsDark"/></svg><span class="wordmark"><b>loadout</b><span class="light">labs</span><sup class="tm">&trade;</sup></span></a>
     <nav class="site-nav" aria-label="Main">
-      <a href="loadline/index.html">Loadline</a>
       <a href="loadline/security.html">Security</a>
       <a href="loadline/support.html">Support</a>
     </nav>
@@ -56,38 +65,20 @@
       <div class="badge" aria-hidden="true"><svg viewBox="0 0 132 132" aria-hidden="true" focusable="false"><use href="#labsDark"/></svg></div>
       <h1><b>loadout</b> <span class="light">labs</span><sup class="tm" style="font-size:.3em">&trade;</sup></h1>
       <p class="lede">Focused software that turns hard decisions into real results.</p>
-      <div class="actions">
-        <a class="button" href="loadline/index.html">Meet Loadline</a>
-        <a class="button glass" href="loadline/support.html">Get support</a>
-      </div>
     </div>
   </div>
 
-  <div class="wrap float">
-    <a class="frame" href="loadline/index.html" aria-label="Meet Loadline"><img src="assets/screens/portfolio.png" width="1840" height="900"
-      alt="Loadline portfolio page in Jira: projects ranked by priority score, with status, expected finish, confidence, teams and what to watch out for."></a>
-  </div>
-
-  <section class="statement" aria-label="What we believe">
+  <!-- Coming soon: one glass card naming the first product. On launch day
+       this page is replaced by the full home page (branch glass-theme). -->
+  <section aria-labelledby="first">
     <div class="wrap">
-      <p>Planning goes wrong when work quietly rises <b>above the line</b>. We build tools that show it early, and show why.</p>
-    </div>
-  </section>
-
-  <section aria-labelledby="loadline">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="label">Loadline &middot; our first product &middot; for Jira Cloud</p>
-        <h2 id="loadline">Portfolio capacity you can defend</h2>
-        <p>From the epics, dates and teams already in Jira.</p>
+      <div class="feature coming">
+        <div class="coming-mark" aria-hidden="true"><svg viewBox="0 0 132 132" aria-hidden="true" focusable="false"><use href="#llDark"/></svg></div>
+        <p class="label">Our first product &middot; for Jira Cloud</p>
+        <h2 id="first">Loadline is coming soon</h2>
+        <p>Portfolio capacity you can defend, from the epics, dates and teams already in Jira. Loadline is on its way to the Atlassian Marketplace.</p>
+        <div class="actions"><span class="chip">Coming to the Atlassian Marketplace</span></div>
       </div>
-      <div class="features">
-        <div class="feature"><span class="n">01</span><h3>Start dates with evidence</h3><p>When each team can start new work, how sure that date is, and the epic that decides it.</p></div>
-        <div class="feature"><span class="n">02</span><h3>Status, not opinion</h3><p>Red, amber and green ratings with the dates and epics behind them.</p></div>
-        <div class="feature"><span class="n">03</span><h3>Rank, then record why</h3><p>An adjustable priority score, load relief after each release, and a ranking decision log.</p></div>
-      </div>
-      <div class="trust"><span>Read-only in Jira</span><span>Runs on Atlassian Forge</span><span>No outside servers</span></div>
-      <div class="actions" style="justify-content:center"><a class="button" href="loadline/index.html">Explore Loadline</a><span class="chip">Coming to the Atlassian Marketplace</span></div>
     </div>
   </section>
 </main>
